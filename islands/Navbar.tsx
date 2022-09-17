@@ -24,9 +24,8 @@ export default function Navbar(props: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav id="header" class="fixed w-full z-10 top-0">
+    <div class="sticky w-full z-10 top-0 backdrop-filter backdrop-blur-md border-b border-gray-200">
       <div
-        id="progress"
         class="h-1 z-20 top-0"
         style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"
       >
@@ -58,7 +57,7 @@ export default function Navbar(props: NavbarProps) {
           </Button>
         </div>
 
-        <div
+        <nav
           class={`w-full flex-grow lg:flex lg:items-center lg:w-auto lg:block mt-2 lg:mt-0 z-20 ${
             open ? "" : "hidden"
           }`}
@@ -79,8 +78,8 @@ export default function Navbar(props: NavbarProps) {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
       </div>
-    </nav>
+    </div>
   );
 }
