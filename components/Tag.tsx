@@ -1,4 +1,4 @@
-import { Tag as TagType } from "../utils/blog.ts";
+import { Tag as TagType } from "../utils/notion.ts";
 
 type TagProps = {
   tag: TagType;

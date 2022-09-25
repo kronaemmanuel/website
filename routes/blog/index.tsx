@@ -2,7 +2,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 
 import PostPreview from "../../components/PostPreview.tsx";
 import Navbar from "../../islands/Navbar.tsx";
-import { getAllPosts, Post } from "../../utils/blog.ts";
+import { getAllPosts, Post } from "../../utils/notion.ts";
 
 export const handler: Handlers<Post[] | null> = {
   async GET(_, ctx) {
@@ -14,7 +14,6 @@ export const handler: Handlers<Post[] | null> = {
 export default function Blog(
   { data: posts }: PageProps<Post[] | null>,
 ) {
-  console.log(posts);
   if (!posts) {
     return <h1>No blogposts found!</h1>;
   }

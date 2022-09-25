@@ -1,4 +1,4 @@
-import { Post } from "../utils/blog.ts";
+import { Post } from "../utils/notion.ts";
 import Tag from "./Tag.tsx";
 
 type PostPreviewProps = {
