@@ -15,13 +15,20 @@ export default function Page(
   { data: post }: PageProps<Post | null>,
 ) {
   if (!post?.contents) {
-    return <h1>Post Contents not found!</h1>;
+    return (
+      <>
+        <Navbar active="/blog" />
+        <article class="mt-4 sm:mt-16 max-w-screen-md w-full mx-auto px-4 sm:px-0">
+          <h1>Post Contents not found!</h1>;
+        </article>
+      </>
+    );
   }
 
   return (
     <>
       <Navbar active="/blog" />
-      <article class="mt-16 max-w-screen-md w-full mx-auto">
+      <article class="mt-4 sm:mt-16 max-w-screen-md w-full mx-auto px-4 sm:px-0">
         <header>
           <p>
             <time>{post.created_time}</time>
@@ -43,7 +50,7 @@ export default function Page(
             </div>
           </div>
         </header>
-        <main class="mt-8 prose max-w-full">
+        <main class="mt-16 prose max-w-none">
           {post.contents.map((block) => <Block block={block} />)}
         </main>
       </article>

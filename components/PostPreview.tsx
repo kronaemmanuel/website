@@ -14,12 +14,12 @@ export default function PostPreview({ post }: PostPreviewProps) {
           <p>
             <time>{post.created_time}</time>
           </p>
-          <div class="mt-4 text-sm text-gray-400 flex flex-wrap">
+          <div class="sm:mt-4 text-sm text-gray-400 flex flex-wrap">
             {post.tags.map((tag) => <Tag tag={tag} />)}
           </div>
         </div>
         <a
-          class="sm:col-span-2 group cursor-pointer"
+          class="mt-4 sm:mt-0 sm:col-span-2 group cursor-pointer"
           href={`/blog/${post.slug}`}
         >
           <h3 class="text-2xl text-gray-900 font-bold group-hover:underline">

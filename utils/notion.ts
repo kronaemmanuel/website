@@ -4,7 +4,7 @@ import {
   PartialBlockObjectResponse,
 } from "https://deno.land/x/notion_sdk@v1.0.4/src/api-endpoints.ts";
 import "dotenv";
-import { format, parse } from "datetime";
+import { parse } from "datetime";
 
 export type Tag = {
   name: string;
@@ -44,10 +44,10 @@ async function getPost(slug: string): Promise<Post | null> {
 
     const post: Post = {
       slug: postResponse.properties.Slug.rich_text[0].plain_text,
-      created_time: format(
-        parse(postResponse.properties.Date.date.start, "yyyy-MM-dd"),
-        "dd-MM-yyyy",
-      ),
+      created_time: Intl.DateTimeFormat("en-GB", { dateStyle: "full" })
+        .format(
+          parse(postResponse.properties.Date.date.start, "yyyy-MM-dd"),
+        ),
       title: postResponse.properties.Name.title[0].plain_text,
       tags: postResponse.properties.Tags.multi_select.map((tag) => {
         return ({
@@ -75,6 +75,12 @@ async function getAllPosts(): Promise<Post[] | null | undefined> {
   try {
     const response = await notion.databases.query({
       database_id: Deno.env.get("NOTION_DATABASE_ID") ?? "",
+      sorts: [
+        {
+          property: "Date",
+          direction: "descending",
+        },
+      ],
     });
 
     return response.results.flatMap((post) => {
@@ -99,10 +105,10 @@ async function getAllPosts(): Promise<Post[] | null | undefined> {
       }
       return ({
         slug: post.properties.Slug.rich_text[0].plain_text,
-        created_time: format(
-          parse(post.properties.Date.date.start, "yyyy-MM-dd"),
-          "dd-MM-yyyy",
-        ),
+        created_time: Intl.DateTimeFormat("en-GB", { dateStyle: "full" })
+          .format(
+            parse(post.properties.Date.date.start, "yyyy-MM-dd"),
+          ),
         title: post.properties.Name.title[0].plain_text,
         tags: post.properties.Tags.multi_select.map((tag) => {
           return ({

@@ -1,6 +1,4 @@
 import { BlockObjectRequest } from "https://deno.land/x/notion_sdk@v1.0.4/src/api-endpoints.ts";
-import { PartialBlockObjectResponse } from "https://deno.land/x/notion_sdk@v1.0.4/src/api-endpoints.ts";
-import { Fragment } from "preact/jsx-runtime";
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -71,26 +69,26 @@ export default function Block({ block }: BlockProps) {
       );
     case "heading_1":
       return (
-        <h1>
+        <h1 class="font-bold text-5xl">
           <Text text={value.rich_text} />
         </h1>
       );
     case "heading_2":
       return (
-        <h2>
+        <h2 class="font-bold">
           <Text text={value.rich_text} />
         </h2>
       );
     case "heading_3":
       return (
-        <h3>
+        <h3 class="font-bold">
           <Text text={value.rich_text} />
         </h3>
       );
     case "bulleted_list_item":
     case "numbered_list_item":
       return (
-        <li>
+        <li class="ml-4">
           <Text text={value.rich_text} />
           {!!value.children && renderNestedList(block)}
         </li>
@@ -122,7 +120,7 @@ export default function Block({ block }: BlockProps) {
     case "quote":
       return <blockquote key={id}>{value.rich_text[0].plain_text}</blockquote>;
     case "code":
-      return <pre>
+      return <pre class="bg-gray-800 text-white overflow-x-scroll">
           {value.rich_text.map(codeblock => (
               <code>
                 {codeblock.plain_text}
