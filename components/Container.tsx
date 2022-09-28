@@ -1,12 +1,11 @@
-import type { ComponentChildren } from "preact";
+import { JSX } from "preact";
 
-type Props = {
-  children: ComponentChildren;
-};
-
-export function Container(props: Props) {
+export function Container(props: JSX.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div class="mt-4 sm:mt-16 max-w-screen-md w-full mx-auto px-4 sm:px-0">
+    <div
+      class="mt-4 sm:mt-16 max-w-screen-md w-full mx-auto px-4 sm:px-0"
+      {...props}
+    >
       {props.children}
     </div>
   );
