@@ -1,6 +1,7 @@
 import { PageProps } from "$fresh/server.ts";
 import { Container } from "../components/Container.tsx";
 import Navbar from "../islands/Navbar.tsx";
+import { site } from "../data/site.ts";
 
 export default function Home(props: PageProps) {
   return (
@@ -26,14 +27,34 @@ export default function Home(props: PageProps) {
             </h1>
           </div>
         </div>
-        <div>
-          <p class="mt-16 leading-7 text-gray-900 text-lg">
+        <div class="mt-16 prose prose-lg max-w-none">
+          <p>
             I'm a developer based in Lahore, Pakistan. I create software for a
             living (and for fun too!).
           </p>
-          <p class="mt-8 leading-7 text-gray-900 text-lg">
+          <p>
             I'm currently looking for a cool place to work at. You can view my
-            resume <a class="underline font-bold" href="/resume">here.</a>
+            resume <a href="/resume">here.</a>
+          </p>
+          <p>
+            This website is made with{" "}
+            <a href="https://fresh.deno.dev/">Fresh</a> and{" "}
+            <a href="https://deno.land/">Deno</a>. The <a href="/blog">blog</a>
+            {" "}
+            on this website is powered by Notion by using the Notion Public API.
+            If you want to see how it is implemented, check out the{" "}
+            <a href={site.viewSourceUrl}>
+              source code
+            </a>{" "}
+            for the website.
+          </p>
+          <p>
+            I like to play Chess sometimes (although I'm still very much a
+            beginner). Send me a challenge on{" "}
+            <a href="https://lichess.org/@/kro_naaa">
+              Lichess
+            </a>{" "}
+            (its free and open source!)
           </p>
         </div>
       </Container>

@@ -11,20 +11,25 @@ const routes = [
     href: "/blog",
   },
   {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/kronaemmanuel/",
+    name: "Resume",
+    href: "/resume",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
   },
 ];
 
 interface NavbarProps {
   active: string;
+  showLogo?: boolean;
 }
 
-export default function Navbar(props: NavbarProps) {
+export default function Navbar({ active, showLogo = true }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div class="sticky w-full z-10 top-0 backdrop-filter backdrop-blur-md border-b border-gray-200">
+    <div class="sticky w-full z-20 top-0 backdrop-filter backdrop-blur-md border-b border-gray-200">
       <div
         class="h-1 z-20 top-0"
         style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"
@@ -33,12 +38,14 @@ export default function Navbar(props: NavbarProps) {
 
       <div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
         <div class="pl-4 md:pl-0">
-          <a
-            class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl"
-            href="/"
-          >
-            Krona Emmanuel
-          </a>
+          {showLogo && (
+            <a
+              class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl"
+              href="/"
+            >
+              Krona Emmanuel
+            </a>
+          )}
         </div>
 
         <div class="block lg:hidden pr-4">
@@ -67,7 +74,7 @@ export default function Navbar(props: NavbarProps) {
               <li class="ml-3">
                 <a
                   class={`inline-block py-2 pl-4 no-underline ${
-                    props.active === route.href
+                    active === route.href
                       ? "text-gray-900 font-bold"
                       : "text-gray-600 hover:text-underline"
                   } `}
