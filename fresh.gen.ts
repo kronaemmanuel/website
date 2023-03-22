@@ -7,10 +7,9 @@ import * as $0 from "./routes/_404.tsx";
 import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/blog/[slug].tsx";
 import * as $3 from "./routes/blog/index.tsx";
-import * as $4 from "./routes/contact/email-successful.tsx";
-import * as $5 from "./routes/contact/index.tsx";
-import * as $6 from "./routes/index.tsx";
-import * as $7 from "./routes/resume.tsx";
+import * as $4 from "./routes/contact/index.tsx";
+import * as $5 from "./routes/index.tsx";
+import * as $6 from "./routes/resume.tsx";
 import * as $$0 from "./islands/Navbar.tsx";
 
 const manifest = {
@@ -19,10 +18,9 @@ const manifest = {
     "./routes/_app.tsx": $1,
     "./routes/blog/[slug].tsx": $2,
     "./routes/blog/index.tsx": $3,
-    "./routes/contact/email-successful.tsx": $4,
-    "./routes/contact/index.tsx": $5,
-    "./routes/index.tsx": $6,
-    "./routes/resume.tsx": $7,
+    "./routes/contact/index.tsx": $4,
+    "./routes/index.tsx": $5,
+    "./routes/resume.tsx": $6,
   },
   islands: {
     "./islands/Navbar.tsx": $$0,

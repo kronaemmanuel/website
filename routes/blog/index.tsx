@@ -23,7 +23,7 @@ export default function Blog(
           <h1>No blogposts found!</h1>
           <p>
             Krona's blogposts database could not be reached. Check if there is a
-            network error on your side. If there isn't, please inform Krona at
+            network error on your side. If there isn't, please inform Krona at 
             <a href="mailto:kronaemmanuelwork@gmail.com">
               kronaemmanuelwork@gmail.com
             </a>.
